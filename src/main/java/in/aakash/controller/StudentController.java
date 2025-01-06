@@ -79,4 +79,18 @@ public class StudentController {
 	}
 
 	// method to display registered student data
+	
+	 @GetMapping("/viewStudents")
+	 public String getStudentsData(Model model)
+	 {
+		 // logic to fetch the data and send to UI.
+		 List<StudentEntity> studentsList = studentRepo.findAll();
+		 
+		 model.addAttribute("students", studentsList);
+		 
+		 return "data";
+	 }
+	
+	
+	
 }
